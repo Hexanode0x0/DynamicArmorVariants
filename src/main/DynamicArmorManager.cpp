@@ -254,7 +254,7 @@ void DynamicArmorManager::ApplyVariant(RE::Actor* a_actor, const std::string& a_
 
 	// Consider only armor items affected by the new variant
 	for (auto armorItemIterator = armorItems.begin(); armorItemIterator != armorItems.end();) {
-		if (newVariant.WouldReplaceAny(*armorItemIterator)) {
+		if (!newVariant.WouldReplaceAny(*armorItemIterator)) {
 			armorItemIterator = armorItems.erase(armorItemIterator);
 		}
 		else {
